@@ -1,0 +1,18 @@
+POZE PENTRU SITE (format .jpg, nume scrise exact ca mai jos)
+Poze gratuite: https://www.pexels.com sau https://unsplash.com
+
+1. Servicii - în folderul img/ (le ai deja)
+   revizie.jpg, ulei.jpg, clima.jpg, diagnoza.jpg,
+   itp.jpg, anvelope.jpg, geometrie.jpg, vopsitorie.jpg
+
+2. Echipa - în folderul img/echipa/
+   Poze tip portret (mai înalte decât late sau pătrate), cu persoana la mijloc.
+   Caută de ex. "mechanic portrait", "auto mechanic", "receptionist portrait".
+   Până le adaugi, pe pagina Echipa apar inițialele.
+
+   mihai.jpg     - Mihai Popa, șef atelier
+   andrei.jpg    - Andrei Stan, mecanic auto
+   cristian.jpg  - Cristian Dobre, mecanic auto
+   radu.jpg      - Radu Ionescu, electrician auto
+   florin.jpg    - Florin Matei, tinichigiu-vopsitor
+   elena.jpg     - Elena Marin, recepție și programări
