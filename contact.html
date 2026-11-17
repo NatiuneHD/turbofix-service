@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Programează-te la TurboFix Service: formular online, telefoane, adresă, program și hartă.">
+  <title>Contact și programare | TurboFix Service</title>
+
+  <!-- Bootstrap 5 (framework CSS) și Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Fonturi: Poppins (titluri) și Inter (text) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap">
+  <!-- Stilurile proprii -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ================= ANTET (același pe toate paginile) ================= -->
+  <header class="site-nav fixed-top">
+    <div class="container nav-bar">
+      <!-- butonul cu 3 linii deschide meniul lateral -->
+      <button class="menu-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#meniuLateral"
+              aria-controls="meniuLateral" aria-label="Deschide meniul">
+        <span></span><span></span><span></span>
+      </button>
+      <a class="logo" href="index.html">TURBO<span>FIX</span><small>SERVICE</small></a>
+
+      <div class="nav-right">
+        <a class="nav-phone" href="tel:0712345678" aria-label="Sună la 0712 345 678"><i class="bi bi-telephone-fill"></i> <span>0712 345 678</span></a>
+        <a class="btn btn-red nav-cta" href="contact.html#programare"><span class="cta-long">Programare rapidă</span><span class="cta-short">Programare</span></a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= MENIUL LATERAL (pleacă din stânga) ================= -->
+  <nav class="offcanvas offcanvas-start side-menu" tabindex="-1" id="meniuLateral" aria-labelledby="titluMeniu">
+    <div class="offcanvas-header">
+      <a class="logo" href="index.html" id="titluMeniu">TURBO<span>FIX</span><small>SERVICE</small></a>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Închide meniul"></button>
+    </div>
+    <div class="offcanvas-body">
+      <p class="side-label">Meniu</p>
+      <ul class="side-links">
+          <li><a class="side-link" href="index.html"><i class="bi bi-house-door"></i> Acasă</a></li>
+          <li><a class="side-link" href="servicii.html"><i class="bi bi-tools"></i> Servicii</a></li>
+          <li><a class="side-link" href="echipa.html"><i class="bi bi-people"></i> Echipa</a></li>
+          <li><a class="side-link" href="recenzii.html"><i class="bi bi-star"></i> Recenzii</a></li>
+          <li><a class="side-link active" aria-current="page" href="contact.html"><i class="bi bi-envelope"></i> Contact</a></li>
+          <li><a class="side-link" href="cont.html"><i class="bi bi-person-circle"></i> Contul meu</a></li>
+          <li><a class="side-link" href="admin.html"><i class="bi bi-lock"></i> Administrare</a></li>
+      </ul>
+
+      <div class="side-bottom">
+        <!-- pentru vizitatori: link spre Autentificare; după logare e înlocuit (js/script.js) cu „Conectat ca …” -->
+        <a class="side-login" id="sideLogin" href="login.html"><i class="bi bi-box-arrow-in-right"></i> Intră în cont / Creează cont</a>
+        <div class="side-user d-none" id="sideUser"></div>
+        <a class="side-phone" href="tel:0712345678"><i class="bi bi-telephone-fill"></i> 0712 345 678</a>
+        <p class="side-program">Luni – Vineri 08:00 – 16:00<br>Sâmbătă 10:00 – 16:00</p>
+        <a class="btn btn-red w-100" href="contact.html#programare">Programare rapidă</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- ================= ANTETUL PAGINII ================= -->
+    <section class="page-hero">
+      <div class="container">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Acasă</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Contact</li>
+          </ol>
+        </nav>
+        <p class="eyebrow">Contact</p>
+        <h1 class="page-title">Lasă-ne datele tale și te sunăm noi</h1>
+        <p class="page-text">Completează formularul sau sună-ne direct. Confirmăm ziua și ora programării telefonic.</p>
+      </div>
+    </section>
+
+    <!-- ================= PROGRAMARE: formular + contact ================= -->
+    <section class="booking booking-contact" id="programare">
+      <div class="container">
+        <div class="booking-box">
+          <p class="eyebrow">Programare</p>
+          <h2 class="section-title text-white">Programare online</h2>
+          <p class="booking-intro">Toate câmpurile marcate cu <span class="req">*</span> sunt obligatorii.</p>
+          <!-- mesaj despre cont: textul se schimbă din js/script.js dacă clientul e conectat -->
+          <p class="account-hint" id="notaCont"><i class="bi bi-person-circle"></i>
+            Ai cont? <a href="login.html">Intră în cont</a> ca să urmărești statusul programării.
+            Nu ai? <a href="login.html#cont-nou">Creează unul gratuit</a>.</p>
+
+          <!-- Mesaj de succes, afișat din JavaScript după trimitere -->
+          <div class="alert alert-danger d-none" id="mesajEroare" role="alert"></div>
+          <div class="alert alert-success d-none" id="mesajSucces" role="alert">
+            <i class="bi bi-check-circle-fill"></i> Mulțumim! Am primit solicitarea și te sunăm în cel mai scurt timp.
+          </div>
+
+          <form id="formProgramare" novalidate>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="nume" class="form-label">Nume <span class="req">*</span></label>
+                <input type="text" class="form-control" id="nume" name="nume" placeholder="Popescu" autocomplete="family-name">
+                <div class="invalid-feedback" id="eroareNume"></div>
+              </div>
+              <div class="col-md-6">
+                <label for="prenume" class="form-label">Prenume <span class="req">*</span></label>
+                <input type="text" class="form-control" id="prenume" name="prenume" placeholder="Ion" autocomplete="given-name">
+                <div class="invalid-feedback" id="eroarePrenume"></div>
+              </div>
+              <div class="col-12">
+                <label for="telefon" class="form-label">Telefon <span class="req">*</span></label>
+                <input type="tel" class="form-control" id="telefon" name="telefon" placeholder="07xx xxx xxx" autocomplete="tel">
+                <div class="invalid-feedback" id="eroareTelefon"></div>
+              </div>
+              <!-- alegerea mașinii: apare doar pentru clienții conectați -->
+              <div class="col-12 d-none" id="grupMasina">
+                <label for="masinaProgramare" class="form-label">Mașina</label>
+                <select class="form-select" id="masinaProgramare"></select>
+                <small class="form-hint"><a href="cont.html#masini">Adaugă sau modifică mașinile</a> din contul tău.</small>
+              </div>
+              <div class="col-12">
+                <label for="solicitare" class="form-label">Problema sau solicitarea ta <span class="req">*</span></label>
+                <textarea class="form-control" id="solicitare" name="solicitare" rows="6"
+                          placeholder="Descrie pe scurt problema sau serviciul de care ai nevoie (marca și modelul mașinii ne ajută)."></textarea>
+                <div class="d-flex justify-content-between">
+                  <div class="invalid-feedback d-block" id="eroareSolicitare"></div>
+                  <small class="word-counter" id="contorCuvinte">0 / 300 cuvinte</small>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="acord" name="acord">
+                  <label class="form-check-label" for="acord">
+                    Sunt de acord cu prelucrarea datelor personale pentru a fi contactat. <span class="req">*</span>
+                  </label>
+                  <div class="invalid-feedback" id="eroareAcord"></div>
+                </div>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn btn-red btn-lg">Trimite solicitarea <i class="bi bi-send"></i></button>
+              </div>
+            </div>
+          </form>
+
+          <!-- Contact, sub formular -->
+          <div class="contact-strip" id="contact">
+            <p class="contact-label">sau sună direct</p>
+            <div class="row g-3">
+              <div class="col-md-4">
+                <a class="contact-item" href="tel:0712345678">
+                  <i class="bi bi-telephone-fill"></i>
+                  <span><small>Service mecanic</small>0712 345 678</span>
+                </a>
+              </div>
+              <div class="col-md-4">
+                <a class="contact-item" href="tel:0723456789">
+                  <i class="bi bi-telephone-fill"></i>
+                  <span><small>Tinichigerie și vopsitorie</small>0723 456 789</span>
+                </a>
+              </div>
+              <div class="col-md-4">
+                <a class="contact-item contact-email" href="mailto:office.turbofix@gmail.com">
+                  <i class="bi bi-envelope-fill"></i>
+                  <span><small>Email</small>office.turbofix@gmail.com</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Adresa și programul de lucru -->
+            <div class="row g-4 contact-details">
+              <div class="col-md-6">
+                <p class="details-title"><i class="bi bi-geo-alt-fill"></i> Adresă</p>
+                <p class="details-text">Strada Chimiștilor, Timișoara</p>
+              </div>
+              <div class="col-md-6">
+                <p class="details-title"><i class="bi bi-clock-fill"></i> Program de lucru</p>
+                <ul class="schedule">
+                  <li><span>Luni – Vineri</span><span>08:00 – 16:00</span></li>
+                  <li><span>Sâmbătă</span><span>10:00 – 16:00</span></li>
+                  <li class="closed"><span>Duminică</span><span>închis</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ================= HARTA ================= -->
+    <section class="map-section">
+      <div class="container">
+        <p class="eyebrow">Unde ne găsești</p>
+        <h2 class="section-title">Strada Chimiștilor, Timișoara</h2>
+        <div class="map-box">
+          <iframe title="Harta: TurboFix Service, Strada Chimiștilor, Timișoara"
+                  src="https://www.google.com/maps?q=Strada%20Chimi%C8%99tilor%2C%20Timi%C8%99oara&amp;z=16&amp;output=embed"
+                  loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <a class="btn btn-dark-solid mt-3" href="https://www.google.com/maps/search/?api=1&amp;query=Strada%20Chimi%C8%99tilor%2C%20Timi%C8%99oara"
+           target="_blank" rel="noopener"><i class="bi bi-geo-alt-fill"></i> Deschide în Google Maps</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= SUBSOL (același pe toate paginile) ================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <a class="logo" href="index.html">TURBO<span>FIX</span><small>SERVICE</small></a>
+          <p class="footer-text">Service auto multimarcă în Timișoara.<br> Mecanică, diagnoză, ITP, roți și caroserie, cu garanție pentru manoperă.</p>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h2 class="footer-title">Pagini</h2>
+          <ul class="footer-links">
+            <li><a href="index.html">Acasă</a></li>
+            <li><a href="servicii.html">Servicii</a></li>
+            <li><a href="echipa.html">Echipa</a></li>
+            <li><a href="recenzii.html">Recenzii</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html"><i class="bi bi-box-arrow-in-right"></i> Autentificare</a></li>
+            <li><a href="cont.html"><i class="bi bi-person-fill"></i> Contul meu</a></li>
+            <li><a href="admin.html"><i class="bi bi-lock-fill"></i> Administrare</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-lg-3">
+          <h2 class="footer-title">Program</h2>
+          <ul class="footer-links">
+            <li>Luni – Vineri: 08:00 – 16:00</li>
+            <li>Sâmbătă: 10:00 – 16:00</li>
+            <li>Duminică: închis</li>
+          </ul>
+        </div>
+        <div class="col-lg-3">
+          <h2 class="footer-title">Contact</h2>
+          <ul class="footer-links">
+            <li><i class="bi bi-geo-alt-fill"></i> Strada Chimiștilor, Timișoara</li>
+            <li><a href="tel:0712345678"><i class="bi bi-telephone-fill"></i> 0712 345 678</a></li>
+            <li><a href="mailto:office.turbofix@gmail.com"><i class="bi bi-envelope-fill"></i> office.turbofix@gmail.com</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="mb-0">&copy; 2026 TurboFix Service. Proiect demonstrativ, datele sunt fictive.</p>
+        <a href="#" class="to-top" aria-label="Înapoi sus"><i class="bi bi-arrow-up"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/date.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

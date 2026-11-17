@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Serviciile TurboFix Service, cu prețuri orientative și durate: mentenanță, ITP, roți și caroserie.">
+  <title>Servicii | TurboFix Service</title>
+
+  <!-- Bootstrap 5 (framework CSS) și Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Fonturi: Poppins (titluri) și Inter (text) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap">
+  <!-- Stilurile proprii -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ================= ANTET (același pe toate paginile) ================= -->
+  <header class="site-nav fixed-top">
+    <div class="container nav-bar">
+      <!-- butonul cu 3 linii deschide meniul lateral -->
+      <button class="menu-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#meniuLateral"
+              aria-controls="meniuLateral" aria-label="Deschide meniul">
+        <span></span><span></span><span></span>
+      </button>
+      <a class="logo" href="index.html">TURBO<span>FIX</span><small>SERVICE</small></a>
+
+      <div class="nav-right">
+        <a class="nav-phone" href="tel:0712345678" aria-label="Sună la 0712 345 678"><i class="bi bi-telephone-fill"></i> <span>0712 345 678</span></a>
+        <a class="btn btn-red nav-cta" href="contact.html#programare"><span class="cta-long">Programare rapidă</span><span class="cta-short">Programare</span></a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= MENIUL LATERAL (pleacă din stânga) ================= -->
+  <nav class="offcanvas offcanvas-start side-menu" tabindex="-1" id="meniuLateral" aria-labelledby="titluMeniu">
+    <div class="offcanvas-header">
+      <a class="logo" href="index.html" id="titluMeniu">TURBO<span>FIX</span><small>SERVICE</small></a>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Închide meniul"></button>
+    </div>
+    <div class="offcanvas-body">
+      <p class="side-label">Meniu</p>
+      <ul class="side-links">
+          <li><a class="side-link" href="index.html"><i class="bi bi-house-door"></i> Acasă</a></li>
+          <li><a class="side-link active" aria-current="page" href="servicii.html"><i class="bi bi-tools"></i> Servicii</a></li>
+          <li><a class="side-link" href="echipa.html"><i class="bi bi-people"></i> Echipa</a></li>
+          <li><a class="side-link" href="recenzii.html"><i class="bi bi-star"></i> Recenzii</a></li>
+          <li><a class="side-link" href="contact.html"><i class="bi bi-envelope"></i> Contact</a></li>
+          <li><a class="side-link" href="cont.html"><i class="bi bi-person-circle"></i> Contul meu</a></li>
+          <li><a class="side-link" href="admin.html"><i class="bi bi-lock"></i> Administrare</a></li>
+      </ul>
+
+      <div class="side-bottom">
+        <!-- pentru vizitatori: link spre Autentificare; după logare e înlocuit (js/script.js) cu „Conectat ca …” -->
+        <a class="side-login" id="sideLogin" href="login.html"><i class="bi bi-box-arrow-in-right"></i> Intră în cont / Creează cont</a>
+        <div class="side-user d-none" id="sideUser"></div>
+        <a class="side-phone" href="tel:0712345678"><i class="bi bi-telephone-fill"></i> 0712 345 678</a>
+        <p class="side-program">Luni – Vineri 08:00 – 16:00<br>Sâmbătă 10:00 – 16:00</p>
+        <a class="btn btn-red w-100" href="contact.html#programare">Programare rapidă</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- ================= ANTETUL PAGINII ================= -->
+    <section class="page-hero">
+      <div class="container">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Acasă</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Servicii</li>
+          </ol>
+        </nav>
+        <p class="eyebrow">Ce oferim</p>
+        <h1 class="page-title">Toate serviciile,<br> într-un singur loc</h1>
+        <p class="page-text">Prețurile sunt orientative și includ manopera. <br>Piesele se stabilesc după diagnoză, cu acordul tău.</p>
+      </div>
+    </section>
+
+    <!-- ================= LISTA DE SERVICII ================= -->
+    <section class="services services-page">
+      <div class="container">
+        <h2 class="group-title">Mentenanță și revizii</h2>
+        <div class="row g-4">
+          <div class="col-sm-6 col-lg-3">
+            <article class="service-card" id="revizie">
+              <div class="service-photo photo-revizie" role="img" aria-label="Mecanic verificând motorul unei mașini"></div>
+              <div class="service-body">
+                <h3>Revizii tehnice</h3>
+                <p>Verificare completă după cartea service a mașinii, cu raport scris.</p>
+                <div class="service-meta"><span class="price">de la 350 lei</span><span class="duration"><i class="bi bi-clock"></i> 2 h</span></div>
+                <a href="contact.html?serviciu=Revizii%20tehnice#programare" class="service-link">Programează <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </article>
+          </div>
+          <div class="col-sm-6 col-lg-3">
+            <article class="service-card" id="ulei">
+              <div class="service-photo photo-ulei" role="img" aria-label="Ulei turnat în motor"></div>
+              <div class="service-body">
+                <h3>Schimb ulei și filtre</h3>
+                <p>Ulei potrivit motorului, filtru de ulei, aer, polen și combustibil.</p>
+                <div class="service-meta"><span class="price">de la 249 lei</span><span class="duration"><i class="bi bi-clock"></i> 1 h</span></div>
+                <a href="contact.html?serviciu=Schimb%20ulei%20%C8%99i%20filtre#programare" class="service-link">Programează <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </article>
+          </div>
+          <div class="col-sm-6 col-lg-3">
+            <article class="service-card" id="clima">
+              <div class="service-photo photo-clima" role="img" aria-label="Încărcarea instalației de aer condiționat"></div>
+              <div class="service-body">
+                <h3>Service climatizare</h3>
+                <p>Încărcare freon, verificarea etanșeității și igienizarea instalației.</p>
+                <div class="service-meta"><span class="price">de la 200 lei</span><span class="duration"><i class="bi bi-clock"></i> 1 h</span></div>
+                <a href="contact.html?serviciu=Service%20climatizare#programare" class="service-link">Programează <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </article>
+          </div>
+          <div class="col-sm-6 col-lg-3">
+            <article class="service-card" id="diagnoza">
+              <div class="service-photo photo-diagnoza" role="img" aria-label="Diagnoză cu laptopul conectat la mașină"></div>
+              <div class="service-body">
+                <h3>Diagnoză computerizată</h3>
+                <p>Citirea erorilor din calculatorul mașinii și explicarea cauzei.</p>
+                <div class="service-meta"><span class="price">de la 120 lei</span><span class="duration"><i class="bi bi-clock"></i> 30 min</span></div>
+                <a href="contact.html?serviciu=Diagnoz%C4%83%20computerizat%C4%83#programare" class="service-link">Programează <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <h2 class="group-title">ITP și roți</h2>
+        <div class="row g-4">
+          <div class="col-sm-6 col-lg-3">
+            <article class="service-card" id="itp">
+              <div class="service-photo photo-itp" role="img" aria-label="Atelier cu mașini pe elevatoare"></div>
+              <div class="service-body">
+                <h3>Service ITP</h3>
+                <p>Inspecție tehnică periodică într-o stație autorizată RAR.</p>
+                <div class="service-meta"><span class="price">de la 180 lei</span><span class="duration"><i class="bi bi-clock"></i> 45 min</span></div>
+                <a href="contact.html?serviciu=Service%20ITP#programare" class="service-link">Programează <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </article>
+          </div>
+          <div class="col-sm-6 col-lg-3">
+            <article class="service-card" id="anvelope">
+              <div class="service-photo photo-anvelope" role="img" aria-label="Rafturi cu anvelope în depozit"></div>
+              <div class="service-body">
+                <h3>Schimb anvelope și jante</h3>
+                <p>Demontare, montare, echilibrare și depozitare sezonieră.</p>
+                <div class="service-meta"><span class="price">de la 160 lei</span><span class="duration"><i class="bi bi-clock"></i> 45 min</span></div>
+                <a href="contact.html?serviciu=Schimb%20anvelope%20%C8%99i%20jante#programare" class="service-link">Programează <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </article>
+          </div>
+          <div class="col-sm-6 col-lg-3">
+            <article class="service-card" id="geometrie">
+              <div class="service-photo photo-geometrie" role="img" aria-label="Mecanic la roata unei mașini"></div>
+              <div class="service-body">
+                <h3>Geometrie roți</h3>
+                <p>Reglaj 3D pentru uzură uniformă a anvelopelor și mers drept.</p>
+                <div class="service-meta"><span class="price">de la 150 lei</span><span class="duration"><i class="bi bi-clock"></i> 1 h</span></div>
+                <a href="contact.html?serviciu=Geometrie%20ro%C8%9Bi#programare" class="service-link">Programează <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <h2 class="group-title">Caroserie</h2>
+        <div class="row g-4">
+          <div class="col-sm-6 col-lg-3">
+            <article class="service-card" id="vopsitorie">
+              <div class="service-photo photo-vopsitorie" role="img" aria-label="Vopsirea unei piese de caroserie cu pistolul"></div>
+              <div class="service-body">
+                <h3>Vopsitorie</h3>
+                <p>Vopsire în cabină, cu nuanța potrivită computerizat.</p>
+                <div class="service-meta"><span class="price">de la 450 lei</span><span class="duration"><i class="bi bi-clock"></i> 1–3 zile</span></div>
+                <a href="contact.html?serviciu=Vopsitorie#programare" class="service-link">Programează <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </article>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= APEL LA ACȚIUNE ================= -->
+    <section class="cta-band">
+      <div class="container">
+        <div class="cta-box">
+          <div>
+            <h2>Ai nevoie de o programare?</h2>
+            <p>Lasă-ne datele tale și te sunăm noi în cel mai scurt timp.</p>
+          </div>
+          <a href="contact.html#programare" class="btn btn-light-cta btn-lg"><i class="bi bi-calendar-check"></i> Programează-te</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= SUBSOL (același pe toate paginile) ================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <a class="logo" href="index.html">TURBO<span>FIX</span><small>SERVICE</small></a>
+          <p class="footer-text">Service auto multimarcă în Timișoara.<br> Mecanică, diagnoză, ITP, roți și caroserie, cu garanție pentru manoperă.</p>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h2 class="footer-title">Pagini</h2>
+          <ul class="footer-links">
+            <li><a href="index.html">Acasă</a></li>
+            <li><a href="servicii.html">Servicii</a></li>
+            <li><a href="echipa.html">Echipa</a></li>
+            <li><a href="recenzii.html">Recenzii</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html"><i class="bi bi-box-arrow-in-right"></i> Autentificare</a></li>
+            <li><a href="cont.html"><i class="bi bi-person-fill"></i> Contul meu</a></li>
+            <li><a href="admin.html"><i class="bi bi-lock-fill"></i> Administrare</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-lg-3">
+          <h2 class="footer-title">Program</h2>
+          <ul class="footer-links">
+            <li>Luni – Vineri: 08:00 – 16:00</li>
+            <li>Sâmbătă: 10:00 – 16:00</li>
+            <li>Duminică: închis</li>
+          </ul>
+        </div>
+        <div class="col-lg-3">
+          <h2 class="footer-title">Contact</h2>
+          <ul class="footer-links">
+            <li><i class="bi bi-geo-alt-fill"></i> Strada Chimiștilor, Timișoara</li>
+            <li><a href="tel:0712345678"><i class="bi bi-telephone-fill"></i> 0712 345 678</a></li>
+            <li><a href="mailto:office.turbofix@gmail.com"><i class="bi bi-envelope-fill"></i> office.turbofix@gmail.com</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="mb-0">&copy; 2026 TurboFix Service. Proiect demonstrativ, datele sunt fictive.</p>
+        <a href="#" class="to-top" aria-label="Înapoi sus"><i class="bi bi-arrow-up"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/date.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

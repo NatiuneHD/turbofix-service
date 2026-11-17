@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Recenziile clienților TurboFix Service și formular pentru a lăsa o recenzie.">
+  <title>Recenzii | TurboFix Service</title>
+
+  <!-- Bootstrap 5 (framework CSS) și Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Fonturi: Poppins (titluri) și Inter (text) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap">
+  <!-- Stilurile proprii -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ================= ANTET (același pe toate paginile) ================= -->
+  <header class="site-nav fixed-top">
+    <div class="container nav-bar">
+      <!-- butonul cu 3 linii deschide meniul lateral -->
+      <button class="menu-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#meniuLateral"
+              aria-controls="meniuLateral" aria-label="Deschide meniul">
+        <span></span><span></span><span></span>
+      </button>
+      <a class="logo" href="index.html">TURBO<span>FIX</span><small>SERVICE</small></a>
+
+      <div class="nav-right">
+        <a class="nav-phone" href="tel:0712345678" aria-label="Sună la 0712 345 678"><i class="bi bi-telephone-fill"></i> <span>0712 345 678</span></a>
+        <a class="btn btn-red nav-cta" href="contact.html#programare"><span class="cta-long">Programare rapidă</span><span class="cta-short">Programare</span></a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= MENIUL LATERAL (pleacă din stânga) ================= -->
+  <nav class="offcanvas offcanvas-start side-menu" tabindex="-1" id="meniuLateral" aria-labelledby="titluMeniu">
+    <div class="offcanvas-header">
+      <a class="logo" href="index.html" id="titluMeniu">TURBO<span>FIX</span><small>SERVICE</small></a>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Închide meniul"></button>
+    </div>
+    <div class="offcanvas-body">
+      <p class="side-label">Meniu</p>
+      <ul class="side-links">
+          <li><a class="side-link" href="index.html"><i class="bi bi-house-door"></i> Acasă</a></li>
+          <li><a class="side-link" href="servicii.html"><i class="bi bi-tools"></i> Servicii</a></li>
+          <li><a class="side-link" href="echipa.html"><i class="bi bi-people"></i> Echipa</a></li>
+          <li><a class="side-link active" aria-current="page" href="recenzii.html"><i class="bi bi-star"></i> Recenzii</a></li>
+          <li><a class="side-link" href="contact.html"><i class="bi bi-envelope"></i> Contact</a></li>
+          <li><a class="side-link" href="cont.html"><i class="bi bi-person-circle"></i> Contul meu</a></li>
+          <li><a class="side-link" href="admin.html"><i class="bi bi-lock"></i> Administrare</a></li>
+      </ul>
+
+      <div class="side-bottom">
+        <!-- pentru vizitatori: link spre Autentificare; după logare e înlocuit (js/script.js) cu „Conectat ca …” -->
+        <a class="side-login" id="sideLogin" href="login.html"><i class="bi bi-box-arrow-in-right"></i> Intră în cont / Creează cont</a>
+        <div class="side-user d-none" id="sideUser"></div>
+        <a class="side-phone" href="tel:0712345678"><i class="bi bi-telephone-fill"></i> 0712 345 678</a>
+        <p class="side-program">Luni – Vineri 08:00 – 16:00<br>Sâmbătă 10:00 – 16:00</p>
+        <a class="btn btn-red w-100" href="contact.html#programare">Programare rapidă</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- ================= ANTETUL PAGINII ================= -->
+    <section class="page-hero">
+      <div class="container">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Acasă</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Recenzii</li>
+          </ol>
+        </nav>
+        <p class="eyebrow">Recenzii</p>
+        <h1 class="page-title">Ce spun clienții noștri</h1>
+        <p class="page-text">Părerile oamenilor care și-au adus mașina la noi. Ai fost clientul nostru? Lasă și tu o recenzie.</p>
+      </div>
+    </section>
+
+    <!-- ================= REZUMAT + FILTRE + LISTA ================= -->
+    <section class="services">
+      <div class="container">
+        <div class="row g-4">
+          <!-- bara laterală: rezumatul notelor și filtrele -->
+          <aside class="col-lg-4">
+            <div class="rating-summary">
+              <p class="rating-big" id="notaMedie">–</p>
+              <div class="review-stars" id="steleMedie" aria-hidden="true"></div>
+              <p class="rating-count" id="numarRecenzii">0 recenzii</p>
+              <div class="rating-bars" id="bareNote"></div>
+            </div>
+
+            <div class="filter-box">
+              <h2 class="filter-title">Filtrează</h2>
+              <label class="form-label" for="filtruStele">Număr de stele</label>
+              <select class="form-select mb-3" id="filtruStele">
+                <option value="0">Toate notele</option>
+                <option value="5">5 stele</option>
+                <option value="4">4 stele</option>
+                <option value="3">3 stele</option>
+                <option value="2">2 stele</option>
+                <option value="1">1 stea</option>
+              </select>
+              <label class="form-label" for="filtruServiciu">Serviciu</label>
+              <select class="form-select mb-3" id="filtruServiciu">
+                <option value="">Toate serviciile</option>
+                    <option value="Revizii tehnice">Revizii tehnice</option>
+                    <option value="Schimb ulei și filtre">Schimb ulei și filtre</option>
+                    <option value="Service climatizare">Service climatizare</option>
+                    <option value="Diagnoză computerizată">Diagnoză computerizată</option>
+                    <option value="Service ITP">Service ITP</option>
+                    <option value="Schimb anvelope și jante">Schimb anvelope și jante</option>
+                    <option value="Geometrie roți">Geometrie roți</option>
+                    <option value="Vopsitorie">Vopsitorie</option>
+              </select>
+              <label class="form-label" for="sortare">Sortare</label>
+              <select class="form-select" id="sortare">
+                <option value="noi">Cele mai noi</option>
+                <option value="bune">Cele mai bune</option>
+                <option value="slabe">Cele mai slabe</option>
+              </select>
+            </div>
+          </aside>
+
+          <!-- lista de recenzii, generată din js/recenzii.js -->
+          <div class="col-lg-8">
+            <p class="results-info" id="infoRezultate"></p>
+            <div class="row g-4" id="listaRecenzii"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FORMULAR RECENZIE ================= -->
+    <section class="booking" id="lasa-recenzie">
+      <div class="container">
+        <div class="booking-box">
+          <p class="eyebrow">Lasă o recenzie</p>
+          <h2 class="section-title text-white">Cum a fost la noi?</h2>
+          <p class="booking-intro">Câmpurile marcate cu <span class="req">*</span> sunt obligatorii.</p>
+          <p class="account-hint"><i class="bi bi-patch-check-fill"></i> Dacă ai <a href="login.html">cont</a> și o lucrare finalizată la noi, recenzia ta primește eticheta „Client verificat”.</p>
+
+          <div class="alert alert-success d-none" id="mesajRecenzie" role="alert">
+            <i class="bi bi-check-circle-fill"></i> Mulțumim! Recenzia ta a fost adăugată în listă.
+          </div>
+
+          <form id="formRecenzie" novalidate>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="recNume" class="form-label">Nume <span class="req">*</span></label>
+                <input type="text" class="form-control" id="recNume" placeholder="ex.: Ana P.">
+                <div class="invalid-feedback" id="eroareRecNume"></div>
+              </div>
+              <div class="col-md-6">
+                <label for="recMasina" class="form-label">Mașina</label>
+                <input type="text" class="form-control" id="recMasina" placeholder="ex.: Ford Focus">
+              </div>
+              <div class="col-md-6">
+                <label for="recServiciu" class="form-label">Serviciul <span class="req">*</span></label>
+                <select class="form-select" id="recServiciu">
+                  <option value="">Alege serviciul</option>
+                    <option value="Revizii tehnice">Revizii tehnice</option>
+                    <option value="Schimb ulei și filtre">Schimb ulei și filtre</option>
+                    <option value="Service climatizare">Service climatizare</option>
+                    <option value="Diagnoză computerizată">Diagnoză computerizată</option>
+                    <option value="Service ITP">Service ITP</option>
+                    <option value="Schimb anvelope și jante">Schimb anvelope și jante</option>
+                    <option value="Geometrie roți">Geometrie roți</option>
+                    <option value="Vopsitorie">Vopsitorie</option>
+                </select>
+                <div class="invalid-feedback" id="eroareRecServiciu"></div>
+              </div>
+              <div class="col-md-6">
+                <span class="form-label d-block">Nota ta <span class="req">*</span></span>
+                <div class="star-input" id="recStele" role="radiogroup" aria-label="Nota, de la 1 la 5 stele">
+                  <button type="button" class="star-btn" data-nota="1" role="radio" aria-checked="false" aria-label="1 stea"><i class="bi bi-star-fill"></i></button>
+                  <button type="button" class="star-btn" data-nota="2" role="radio" aria-checked="false" aria-label="2 stele"><i class="bi bi-star-fill"></i></button>
+                  <button type="button" class="star-btn" data-nota="3" role="radio" aria-checked="false" aria-label="3 stele"><i class="bi bi-star-fill"></i></button>
+                  <button type="button" class="star-btn" data-nota="4" role="radio" aria-checked="false" aria-label="4 stele"><i class="bi bi-star-fill"></i></button>
+                  <button type="button" class="star-btn" data-nota="5" role="radio" aria-checked="false" aria-label="5 stele"><i class="bi bi-star-fill"></i></button>
+                </div>
+                <div class="invalid-feedback" id="eroareRecStele"></div>
+              </div>
+              <div class="col-12">
+                <label for="recText" class="form-label">Recenzia ta <span class="req">*</span></label>
+                <textarea class="form-control" id="recText" rows="4" placeholder="Ce ți-a plăcut? Ce putem face mai bine?"></textarea>
+                <div class="d-flex justify-content-between">
+                  <div class="invalid-feedback d-block" id="eroareRecText"></div>
+                  <small class="word-counter" id="contorRecenzie">0 / 500 caractere</small>
+                </div>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn btn-red btn-lg">Publică recenzia <i class="bi bi-send"></i></button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= SUBSOL (același pe toate paginile) ================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <a class="logo" href="index.html">TURBO<span>FIX</span><small>SERVICE</small></a>
+          <p class="footer-text">Service auto multimarcă în Timișoara.<br> Mecanică, diagnoză, ITP, roți și caroserie, cu garanție pentru manoperă.</p>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h2 class="footer-title">Pagini</h2>
+          <ul class="footer-links">
+            <li><a href="index.html">Acasă</a></li>
+            <li><a href="servicii.html">Servicii</a></li>
+            <li><a href="echipa.html">Echipa</a></li>
+            <li><a href="recenzii.html">Recenzii</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html"><i class="bi bi-box-arrow-in-right"></i> Autentificare</a></li>
+            <li><a href="cont.html"><i class="bi bi-person-fill"></i> Contul meu</a></li>
+            <li><a href="admin.html"><i class="bi bi-lock-fill"></i> Administrare</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-lg-3">
+          <h2 class="footer-title">Program</h2>
+          <ul class="footer-links">
+            <li>Luni – Vineri: 08:00 – 16:00</li>
+            <li>Sâmbătă: 10:00 – 16:00</li>
+            <li>Duminică: închis</li>
+          </ul>
+        </div>
+        <div class="col-lg-3">
+          <h2 class="footer-title">Contact</h2>
+          <ul class="footer-links">
+            <li><i class="bi bi-geo-alt-fill"></i> Strada Chimiștilor, Timișoara</li>
+            <li><a href="tel:0712345678"><i class="bi bi-telephone-fill"></i> 0712 345 678</a></li>
+            <li><a href="mailto:office.turbofix@gmail.com"><i class="bi bi-envelope-fill"></i> office.turbofix@gmail.com</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="mb-0">&copy; 2026 TurboFix Service. Proiect demonstrativ, datele sunt fictive.</p>
+        <a href="#" class="to-top" aria-label="Înapoi sus"><i class="bi bi-arrow-up"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/date.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/recenzii.js"></script>
+</body>
+</html>

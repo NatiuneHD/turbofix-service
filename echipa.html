@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Echipa TurboFix Service: mecanici, electricieni auto și tinichigii cu experiență.">
+  <title>Echipa | TurboFix Service</title>
+
+  <!-- Bootstrap 5 (framework CSS) și Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Fonturi: Poppins (titluri) și Inter (text) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap">
+  <!-- Stilurile proprii -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ================= ANTET (același pe toate paginile) ================= -->
+  <header class="site-nav fixed-top">
+    <div class="container nav-bar">
+      <!-- butonul cu 3 linii deschide meniul lateral -->
+      <button class="menu-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#meniuLateral"
+              aria-controls="meniuLateral" aria-label="Deschide meniul">
+        <span></span><span></span><span></span>
+      </button>
+      <a class="logo" href="index.html">TURBO<span>FIX</span><small>SERVICE</small></a>
+
+      <div class="nav-right">
+        <a class="nav-phone" href="tel:0712345678" aria-label="Sună la 0712 345 678"><i class="bi bi-telephone-fill"></i> <span>0712 345 678</span></a>
+        <a class="btn btn-red nav-cta" href="contact.html#programare"><span class="cta-long">Programare rapidă</span><span class="cta-short">Programare</span></a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= MENIUL LATERAL (pleacă din stânga) ================= -->
+  <nav class="offcanvas offcanvas-start side-menu" tabindex="-1" id="meniuLateral" aria-labelledby="titluMeniu">
+    <div class="offcanvas-header">
+      <a class="logo" href="index.html" id="titluMeniu">TURBO<span>FIX</span><small>SERVICE</small></a>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Închide meniul"></button>
+    </div>
+    <div class="offcanvas-body">
+      <p class="side-label">Meniu</p>
+      <ul class="side-links">
+          <li><a class="side-link" href="index.html"><i class="bi bi-house-door"></i> Acasă</a></li>
+          <li><a class="side-link" href="servicii.html"><i class="bi bi-tools"></i> Servicii</a></li>
+          <li><a class="side-link active" aria-current="page" href="echipa.html"><i class="bi bi-people"></i> Echipa</a></li>
+          <li><a class="side-link" href="recenzii.html"><i class="bi bi-star"></i> Recenzii</a></li>
+          <li><a class="side-link" href="contact.html"><i class="bi bi-envelope"></i> Contact</a></li>
+          <li><a class="side-link" href="cont.html"><i class="bi bi-person-circle"></i> Contul meu</a></li>
+          <li><a class="side-link" href="admin.html"><i class="bi bi-lock"></i> Administrare</a></li>
+      </ul>
+
+      <div class="side-bottom">
+        <!-- pentru vizitatori: link spre Autentificare; după logare e înlocuit (js/script.js) cu „Conectat ca …” -->
+        <a class="side-login" id="sideLogin" href="login.html"><i class="bi bi-box-arrow-in-right"></i> Intră în cont / Creează cont</a>
+        <div class="side-user d-none" id="sideUser"></div>
+        <a class="side-phone" href="tel:0712345678"><i class="bi bi-telephone-fill"></i> 0712 345 678</a>
+        <p class="side-program">Luni – Vineri 08:00 – 16:00<br>Sâmbătă 10:00 – 16:00</p>
+        <a class="btn btn-red w-100" href="contact.html#programare">Programare rapidă</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- ================= ANTETUL PAGINII ================= -->
+    <section class="page-hero">
+      <div class="container">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Acasă</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Echipa</li>
+          </ol>
+        </nav>
+        <p class="eyebrow">Echipa noastră</p>
+        <h1 class="page-title">Oamenii care îți repară mașina</h1>
+        <p class="page-text">Mecanici, electricieni și tinichigii cu experiență, care lucrează împreună de ani de zile.</p>
+      </div>
+    </section>
+
+    <!-- ================= MEMBRII ECHIPEI ================= -->
+    <section class="services">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-sm-6 col-lg-4">
+            <article class="team-card">
+              <div class="team-photo">
+                <span class="team-initials" aria-hidden="true">MP</span>
+                <img class="team-img" src="img/echipa/mihai.jpg" alt="Mihai Popa, Șef atelier">
+              </div>
+              <div class="team-body">
+                <p class="team-role">Șef atelier</p>
+                <h2>Mihai Popa</h2>
+                <p class="team-exp"><i class="bi bi-award-fill"></i> 18 ani de experiență</p>
+                <p>Coordonează lucrările și verifică fiecare mașină înainte de predare.</p>
+                <ul class="team-tags">
+                  <li>Mecanică generală</li>
+                  <li>Motoare diesel</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+          <div class="col-sm-6 col-lg-4">
+            <article class="team-card">
+              <div class="team-photo">
+                <span class="team-initials" aria-hidden="true">AS</span>
+                <img class="team-img" src="img/echipa/andrei.jpg" alt="Andrei Stan, Mecanic auto">
+              </div>
+              <div class="team-body">
+                <p class="team-role">Mecanic auto</p>
+                <h2>Andrei Stan</h2>
+                <p class="team-exp"><i class="bi bi-award-fill"></i> 9 ani de experiență</p>
+                <p>Se ocupă de revizii, distribuții și sisteme de frânare.</p>
+                <ul class="team-tags">
+                  <li>Revizii</li>
+                  <li>Frâne</li>
+                  <li>Distribuție</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+          <div class="col-sm-6 col-lg-4">
+            <article class="team-card">
+              <div class="team-photo">
+                <span class="team-initials" aria-hidden="true">CD</span>
+                <img class="team-img" src="img/echipa/cristian.jpg" alt="Cristian Dobre, Mecanic auto">
+              </div>
+              <div class="team-body">
+                <p class="team-role">Mecanic auto</p>
+                <h2>Cristian Dobre</h2>
+                <p class="team-exp"><i class="bi bi-award-fill"></i> 6 ani de experiență</p>
+                <p>Specializat pe suspensii, direcție și geometria roților.</p>
+                <ul class="team-tags">
+                  <li>Suspensii</li>
+                  <li>Geometrie 3D</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+          <div class="col-sm-6 col-lg-4">
+            <article class="team-card">
+              <div class="team-photo">
+                <span class="team-initials" aria-hidden="true">RI</span>
+                <img class="team-img" src="img/echipa/radu.jpg" alt="Radu Ionescu, Electrician auto">
+              </div>
+              <div class="team-body">
+                <p class="team-role">Electrician auto</p>
+                <h2>Radu Ionescu</h2>
+                <p class="team-exp"><i class="bi bi-award-fill"></i> 11 ani de experiență</p>
+                <p>Diagnoză computerizată și reparații la instalația electrică.</p>
+                <ul class="team-tags">
+                  <li>Diagnoză</li>
+                  <li>Climatizare</li>
+                  <li>Electrică</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+          <div class="col-sm-6 col-lg-4">
+            <article class="team-card">
+              <div class="team-photo">
+                <span class="team-initials" aria-hidden="true">FM</span>
+                <img class="team-img" src="img/echipa/florin.jpg" alt="Florin Matei, Tinichigiu-vopsitor">
+              </div>
+              <div class="team-body">
+                <p class="team-role">Tinichigiu-vopsitor</p>
+                <h2>Florin Matei</h2>
+                <p class="team-exp"><i class="bi bi-award-fill"></i> 14 ani de experiență</p>
+                <p>Repară caroseria și potrivește nuanța vopselei la computer.</p>
+                <ul class="team-tags">
+                  <li>Tinichigerie</li>
+                  <li>Vopsitorie</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+          <div class="col-sm-6 col-lg-4">
+            <article class="team-card">
+              <div class="team-photo">
+                <span class="team-initials" aria-hidden="true">EM</span>
+                <img class="team-img" src="img/echipa/elena.jpg" alt="Elena Marin, Recepție și programări">
+              </div>
+              <div class="team-body">
+                <p class="team-role">Recepție și programări</p>
+                <h2>Elena Marin</h2>
+                <p class="team-exp"><i class="bi bi-award-fill"></i> 5 ani de experiență</p>
+                <p>Preia programările, întocmește devizele și ține legătura cu clienții.</p>
+                <ul class="team-tags">
+                  <li>Programări</li>
+                  <li>Devize</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= ECHIPA ÎN CIFRE ================= -->
+    <section class="why">
+      <div class="container">
+        <div class="row g-4 text-center">
+          <div class="col-6 col-md-3"><p class="big-number">12</p><p class="big-label">ani de activitate</p></div>
+          <div class="col-6 col-md-3"><p class="big-number">6</p><p class="big-label">specialiști</p></div>
+          <div class="col-6 col-md-3"><p class="big-number">2.500+</p><p class="big-label">mașini reparate pe an</p></div>
+          <div class="col-6 col-md-3"><p class="big-number">92%</p><p class="big-label">clienți care revin</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= APEL LA ACȚIUNE ================= -->
+    <section class="cta-band">
+      <div class="container">
+        <div class="cta-box">
+          <div>
+            <h2>Ai nevoie de o programare?</h2>
+            <p>Lasă-ne datele tale și te sunăm noi în cel mai scurt timp.</p>
+          </div>
+          <a href="contact.html#programare" class="btn btn-light-cta btn-lg"><i class="bi bi-calendar-check"></i> Programează-te</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= SUBSOL (același pe toate paginile) ================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <a class="logo" href="index.html">TURBO<span>FIX</span><small>SERVICE</small></a>
+          <p class="footer-text">Service auto multimarcă în Timișoara.<br> Mecanică, diagnoză, ITP, roți și caroserie, cu garanție pentru manoperă.</p>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h2 class="footer-title">Pagini</h2>
+          <ul class="footer-links">
+            <li><a href="index.html">Acasă</a></li>
+            <li><a href="servicii.html">Servicii</a></li>
+            <li><a href="echipa.html">Echipa</a></li>
+            <li><a href="recenzii.html">Recenzii</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html"><i class="bi bi-box-arrow-in-right"></i> Autentificare</a></li>
+            <li><a href="cont.html"><i class="bi bi-person-fill"></i> Contul meu</a></li>
+            <li><a href="admin.html"><i class="bi bi-lock-fill"></i> Administrare</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-lg-3">
+          <h2 class="footer-title">Program</h2>
+          <ul class="footer-links">
+            <li>Luni – Vineri: 08:00 – 16:00</li>
+            <li>Sâmbătă: 10:00 – 16:00</li>
+            <li>Duminică: închis</li>
+          </ul>
+        </div>
+        <div class="col-lg-3">
+          <h2 class="footer-title">Contact</h2>
+          <ul class="footer-links">
+            <li><i class="bi bi-geo-alt-fill"></i> Strada Chimiștilor, Timișoara</li>
+            <li><a href="tel:0712345678"><i class="bi bi-telephone-fill"></i> 0712 345 678</a></li>
+            <li><a href="mailto:office.turbofix@gmail.com"><i class="bi bi-envelope-fill"></i> office.turbofix@gmail.com</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="mb-0">&copy; 2026 TurboFix Service. Proiect demonstrativ, datele sunt fictive.</p>
+        <a href="#" class="to-top" aria-label="Înapoi sus"><i class="bi bi-arrow-up"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/date.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

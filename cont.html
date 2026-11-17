@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Contul clientului TurboFix Service: programări, mașini, profil.">
+  <title>Contul meu | TurboFix Service</title>
+
+  <!-- Bootstrap 5 (framework CSS) și Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Fonturi: Poppins (titluri) și Inter (text) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap">
+  <!-- Stilurile proprii -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="needs-auth">
+
+  <!-- ================= ANTET (același pe toate paginile) ================= -->
+  <header class="site-nav fixed-top">
+    <div class="container nav-bar">
+      <!-- butonul cu 3 linii deschide meniul lateral -->
+      <button class="menu-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#meniuLateral"
+              aria-controls="meniuLateral" aria-label="Deschide meniul">
+        <span></span><span></span><span></span>
+      </button>
+      <a class="logo" href="index.html">TURBO<span>FIX</span><small>SERVICE</small></a>
+
+      <div class="nav-right">
+        <a class="nav-phone" href="tel:0712345678" aria-label="Sună la 0712 345 678"><i class="bi bi-telephone-fill"></i> <span>0712 345 678</span></a>
+        <a class="btn btn-red nav-cta" href="contact.html#programare"><span class="cta-long">Programare rapidă</span><span class="cta-short">Programare</span></a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= MENIUL LATERAL (pleacă din stânga) ================= -->
+  <nav class="offcanvas offcanvas-start side-menu" tabindex="-1" id="meniuLateral" aria-labelledby="titluMeniu">
+    <div class="offcanvas-header">
+      <a class="logo" href="index.html" id="titluMeniu">TURBO<span>FIX</span><small>SERVICE</small></a>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Închide meniul"></button>
+    </div>
+    <div class="offcanvas-body">
+      <p class="side-label">Meniu</p>
+      <ul class="side-links">
+          <li><a class="side-link" href="index.html"><i class="bi bi-house-door"></i> Acasă</a></li>
+          <li><a class="side-link" href="servicii.html"><i class="bi bi-tools"></i> Servicii</a></li>
+          <li><a class="side-link" href="echipa.html"><i class="bi bi-people"></i> Echipa</a></li>
+          <li><a class="side-link" href="recenzii.html"><i class="bi bi-star"></i> Recenzii</a></li>
+          <li><a class="side-link" href="contact.html"><i class="bi bi-envelope"></i> Contact</a></li>
+          <li><a class="side-link active" aria-current="page" href="cont.html"><i class="bi bi-person-circle"></i> Contul meu</a></li>
+          <li><a class="side-link" href="admin.html"><i class="bi bi-lock"></i> Administrare</a></li>
+      </ul>
+
+      <div class="side-bottom">
+        <!-- pentru vizitatori: link spre Autentificare; după logare e înlocuit (js/script.js) cu „Conectat ca …” -->
+        <a class="side-login" id="sideLogin" href="login.html"><i class="bi bi-box-arrow-in-right"></i> Intră în cont / Creează cont</a>
+        <div class="side-user d-none" id="sideUser"></div>
+        <a class="side-phone" href="tel:0712345678"><i class="bi bi-telephone-fill"></i> 0712 345 678</a>
+        <p class="side-program">Luni – Vineri 08:00 – 16:00<br>Sâmbătă 10:00 – 16:00</p>
+        <a class="btn btn-red w-100" href="contact.html#programare">Programare rapidă</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- ================= ANTETUL PAGINII ================= -->
+    <section class="page-hero">
+      <div class="container">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Acasă</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Contul meu</li>
+          </ol>
+        </nav>
+        <p class="eyebrow">Contul meu</p>
+        <h1 class="page-title">Bun venit, <span id="contPrenume"></span>!</h1>
+        <p class="page-text">Aici îți vezi programările și statusul lor, îți gestionezi mașinile și datele de contact.</p>
+      </div>
+    </section>
+
+    <!-- ================= CONTUL CLIENTULUI ================= -->
+    <section class="services">
+      <div class="container">
+        <div class="admin-user">
+          <span><i class="bi bi-person-circle"></i> Conectat ca <strong id="contEmail"></strong> <span class="role-badge">client</span></span>
+          <div class="d-flex gap-2 flex-wrap">
+            <a href="contact.html#programare" class="btn btn-red btn-sm"><i class="bi bi-calendar-plus"></i> Programare nouă</a>
+            <button type="button" class="btn btn-dark-solid btn-sm" id="btnLogoutCont"><i class="bi bi-box-arrow-right"></i> Deconectare</button>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          <!-- bara laterală a contului -->
+          <aside class="col-lg-3">
+            <nav class="account-nav" aria-label="Secțiunile contului">
+              <button type="button" class="active" data-sectiune="programari"><i class="bi bi-calendar-check"></i> Programările mele <span class="badge" id="nrProg">0</span></button>
+              <button type="button" data-sectiune="masini"><i class="bi bi-car-front"></i> Mașinile mele <span class="badge" id="nrMasini">0</span></button>
+              <button type="button" data-sectiune="profil"><i class="bi bi-person-gear"></i> Profil</button>
+            </nav>
+          </aside>
+
+          <div class="col-lg-9">
+            <!-- 1. programările -->
+            <div class="account-panel" id="sectiune-programari">
+              <div class="row g-3 mb-4">
+                <div class="col-4"><div class="admin-stat"><p class="admin-stat-nr" id="nrProgActive">0</p><p class="admin-stat-label">în desfășurare</p></div></div>
+                <div class="col-4"><div class="admin-stat"><p class="admin-stat-nr" id="nrProgFinal">0</p><p class="admin-stat-label">finalizate</p></div></div>
+                <div class="col-4"><div class="admin-stat"><p class="admin-stat-nr"><a href="contact.html#programare" class="stat-link"><i class="bi bi-plus-circle"></i></a></p><p class="admin-stat-label">programare nouă</p></div></div>
+              </div>
+              <div class="booking-list" id="listaProgramari"></div>
+            </div>
+
+            <!-- 2. mașinile -->
+            <div class="account-panel d-none" id="sectiune-masini">
+              <div class="row g-3 mb-4" id="listaMasini"></div>
+              <div class="panel-card">
+                <h2 class="panel-title" id="titluFormMasina">Adaugă o mașină</h2>
+                <form id="formMasina" novalidate>
+                  <div class="row g-3">
+                    <div class="col-md-6">
+                      <label for="masMarca" class="form-label">Marca <span class="req">*</span></label>
+                      <input type="text" class="form-control" id="masMarca" placeholder="ex.: Dacia">
+                      <div class="invalid-feedback" id="eroareMarca"></div>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="masModel" class="form-label">Modelul <span class="req">*</span></label>
+                      <input type="text" class="form-control" id="masModel" placeholder="ex.: Logan">
+                      <div class="invalid-feedback" id="eroareModel"></div>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="masAn" class="form-label">Anul fabricației <span class="req">*</span></label>
+                      <input type="number" class="form-control" id="masAn" placeholder="ex.: 2018" min="1950">
+                      <div class="invalid-feedback" id="eroareAn"></div>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="masNr" class="form-label">Număr de înmatriculare <span class="req">*</span></label>
+                      <input type="text" class="form-control" id="masNr" placeholder="ex.: TM 12 ABC">
+                      <div class="invalid-feedback" id="eroareNr"></div>
+                    </div>
+                    <div class="col-12 d-flex gap-2 flex-wrap">
+                      <button type="submit" class="btn btn-red" id="btnSalveazaMasina"><i class="bi bi-plus-lg"></i> Adaugă mașina</button>
+                      <button type="button" class="btn btn-outline-secondary d-none" id="btnRenunta">Renunță</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <!-- 3. profilul -->
+            <div class="account-panel d-none" id="sectiune-profil">
+              <div class="panel-card">
+                <h2 class="panel-title">Datele mele</h2>
+                <div class="alert alert-success d-none" id="mesajProfil" role="alert"><i class="bi bi-check-circle-fill"></i> Modificările au fost salvate.</div>
+                <form id="formProfil" novalidate>
+                  <div class="row g-3">
+                    <div class="col-md-6">
+                      <label for="profNume" class="form-label">Nume</label>
+                      <input type="text" class="form-control" id="profNume">
+                      <div class="invalid-feedback" id="eroareProfNume"></div>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="profPrenume" class="form-label">Prenume</label>
+                      <input type="text" class="form-control" id="profPrenume">
+                      <div class="invalid-feedback" id="eroareProfPrenume"></div>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="profEmail" class="form-label">Email</label>
+                      <input type="email" class="form-control" id="profEmail" disabled>
+                      <small class="form-hint">Emailul nu se poate schimba.</small>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="profTelefon" class="form-label">Telefon</label>
+                      <input type="tel" class="form-control" id="profTelefon">
+                      <div class="invalid-feedback" id="eroareProfTelefon"></div>
+                    </div>
+                    <div class="col-12"><p class="panel-subtitle">Schimbă parola (opțional)</p></div>
+                    <div class="col-md-6">
+                      <label for="profParola" class="form-label">Parolă nouă</label>
+                      <input type="password" class="form-control" id="profParola" autocomplete="new-password">
+                      <div class="invalid-feedback" id="eroareProfParola"></div>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="profParola2" class="form-label">Repetă parola nouă</label>
+                      <input type="password" class="form-control" id="profParola2" autocomplete="new-password">
+                      <div class="invalid-feedback" id="eroareProfParola2"></div>
+                    </div>
+                    <div class="col-12 d-flex justify-content-between flex-wrap gap-2">
+                      <button type="submit" class="btn btn-red"><i class="bi bi-check-lg"></i> Salvează</button>
+                      <button type="button" class="btn btn-link text-danger" id="btnStergeCont"><i class="bi bi-trash"></i> Șterge contul</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= SUBSOL (același pe toate paginile) ================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <a class="logo" href="index.html">TURBO<span>FIX</span><small>SERVICE</small></a>
+          <p class="footer-text">Service auto multimarcă în Timișoara.<br> Mecanică, diagnoză, ITP, roți și caroserie, cu garanție pentru manoperă.</p>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h2 class="footer-title">Pagini</h2>
+          <ul class="footer-links">
+            <li><a href="index.html">Acasă</a></li>
+            <li><a href="servicii.html">Servicii</a></li>
+            <li><a href="echipa.html">Echipa</a></li>
+            <li><a href="recenzii.html">Recenzii</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html"><i class="bi bi-box-arrow-in-right"></i> Autentificare</a></li>
+            <li><a href="cont.html"><i class="bi bi-person-fill"></i> Contul meu</a></li>
+            <li><a href="admin.html"><i class="bi bi-lock-fill"></i> Administrare</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-lg-3">
+          <h2 class="footer-title">Program</h2>
+          <ul class="footer-links">
+            <li>Luni – Vineri: 08:00 – 16:00</li>
+            <li>Sâmbătă: 10:00 – 16:00</li>
+            <li>Duminică: închis</li>
+          </ul>
+        </div>
+        <div class="col-lg-3">
+          <h2 class="footer-title">Contact</h2>
+          <ul class="footer-links">
+            <li><i class="bi bi-geo-alt-fill"></i> Strada Chimiștilor, Timișoara</li>
+            <li><a href="tel:0712345678"><i class="bi bi-telephone-fill"></i> 0712 345 678</a></li>
+            <li><a href="mailto:office.turbofix@gmail.com"><i class="bi bi-envelope-fill"></i> office.turbofix@gmail.com</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="mb-0">&copy; 2026 TurboFix Service. Proiect demonstrativ, datele sunt fictive.</p>
+        <a href="#" class="to-top" aria-label="Înapoi sus"><i class="bi bi-arrow-up"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/date.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/cont.js"></script>
+</body>
+</html>
